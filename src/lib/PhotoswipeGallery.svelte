@@ -24,7 +24,7 @@ let columns: any[] = [];
 let galleryWidth: number = 0;
 let columnCount: number = 0;
 
-$: columnCount = parseInt(galleryWidth / maxColumnWidth) ?? 1;
+$: columnCount = parseInt(galleryWidth / maxColumnWidth) || 1;
 $: columnCount && Draw();
 $: galleryStyle =
     "grid-template-columns: repeat(" +
