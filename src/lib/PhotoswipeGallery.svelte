@@ -14,7 +14,7 @@ export let galleryID: string = "Svelte-Photoswipe-Gallery";
 export let gap: number = 10;
 export let maxColumnWidth: number = 250;
 export let hover: boolean = false;
-export let loading: string = "lazy";
+export let loading: "lazy" | "eager" | null | undefined = "lazy";
 export let images: any[] = [];
 export let showDescription: boolean = true;
 export let showDownloadButton: boolean = true;
@@ -149,6 +149,7 @@ const onClick = (index: number) => {
             class="{hover === true ? 'img-hover' : ''} {img.class} GalleryImage"
             {loading}
             on:click={() => onClick(img.index)}
+            on:keypress={() => onClick(img.index)}
         />
         {/each}
     </div>
